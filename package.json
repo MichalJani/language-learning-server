@@ -1,0 +1,31 @@
+{
+  "name": "dictionary-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Michal Janicki",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=production node server",
+    "dev": "nodemon server",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "yarn run compile",
+    "pretest": "yarn run compile",
+    "posttest": "yarn run check"
+  },
+  "dependencies": {
+    "@google-cloud/translate": "5.3.0",
+    "colors": "1.4.0",
+    "cors": "2.8.5",
+    "dotenv": "8.2.0",
+    "express": "4.17.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.11.1",
+    "gts": "^2.0.2",
+    "nodemon": "2.0.4",
+    "typescript": "^3.8.3"
+  }
+}
