@@ -20,9 +20,7 @@ function main(
 ) {
   // console.log("projectId", projectId)
   // [START translate_quickstart]
-  /**
-   * TODO(developer): Uncomment the following line before running the sample.
-   */
+
   // const projectId = 'YOUR_PROJECT_ID';
 
   // Imports the Google Cloud client library
