@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.route('/:target/:text').get(translationEng);
 
-
 router.route('/:source/:target/:text').get(translation);
 
 router.route('/model/:source/:target/:text').get(translationWithModel);

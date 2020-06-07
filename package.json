@@ -1,5 +1,5 @@
 {
-  "name": "dictionary-server",
+  "name": "language-learning-server",
   "version": "1.0.0",
   "main": "server.js",
   "author": "Michal Janicki",
@@ -7,10 +7,7 @@
   "scripts": {
     "start": "NODE_ENV=production node server",
     "dev": "nodemon server",
-    "check": "gts check",
-    "clean": "gts clean",
     "compile": "tsc",
-    "fix": "gts fix",
     "prepare": "yarn run compile",
     "pretest": "yarn run compile",
     "posttest": "yarn run check"
@@ -24,7 +21,10 @@
   },
   "devDependencies": {
     "@types/node": "^13.11.1",
-    "gts": "^2.0.2",
+    "@typescript-eslint/eslint-plugin": "3.1.0",
+    "@typescript-eslint/parser": "3.1.0",
+    "eslint": "7.2.0",
+    "eslint-config-google": "0.14.0",
     "nodemon": "2.0.4",
     "typescript": "^3.8.3"
   }

@@ -16,7 +16,7 @@ const languages = require('./routes/languages');
 const {Translate} = require('@google-cloud/translate').v2;
 
 function main(
-  projectId = 'YOUR_PROJECT_ID' // Your GCP Project Id
+    projectId = 'YOUR_PROJECT_ID', // Your GCP Project Id
 ) {
   // console.log("projectId", projectId)
   // [START translate_quickstart]
@@ -60,10 +60,10 @@ const PORT = process.env.PORT || 5000;
 
 // eslint-disable-next-line no-unused-vars
 const server = app.listen(
-  PORT,
-  console.log(
-    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
-  )
+    PORT,
+    console.log(
+        `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold,
+    ),
 );
 
 // Handle unhandled promise rejections
@@ -73,8 +73,6 @@ process.on('unhandledRejection', (err, promise) => {
   // Close server & exit process
   // server.close(() => process.exit(1));
 });
-
-
 
 
 // https://cloud.google.com/translate/docs/how-to

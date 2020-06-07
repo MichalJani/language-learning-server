@@ -8,11 +8,11 @@ const trailing = 'Semicolon';
 const why = 'am I tabbed?';
 
 export function doSomeStuff(
-  withThis: string,
-  andThat: string,
-  andThose: string[]
+    withThis: string,
+    andThat: string,
+    andThose: string[],
 ) {
-  //function on one line
+  // function on one line
   if (!andThose.length) {
     return false;
   }

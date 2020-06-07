@@ -6,7 +6,6 @@ const asyncHandler = require('../middleware/async');
 const {Translate} = require('@google-cloud/translate').v2;
 // Imports the Google Cloud Translation library
 const {TranslationServiceClient} = require('@google-cloud/translate');
-// eslint-disable-next-line node/no-unsupported-features/es-syntax
 const translate = new Translate({...process.argv.slice(2)});
 // Instantiates a client
 const translationClient = new TranslationServiceClient();
@@ -31,10 +30,10 @@ exports.translationEng = asyncHandler(async (req, res, next) => {
 
   if (!translated) {
     return next(
-      new ErrorResponse(
-        `Translation not found with id of ${req.params.id}`,
-        404
-      )
+        new ErrorResponse(
+            `Translation not found with id of ${req.params.id}`,
+            404,
+        ),
     );
   }
 
@@ -46,18 +45,8 @@ exports.translationEng = asyncHandler(async (req, res, next) => {
 // @route     GET /api/v1/translation/:source/:target/:text
 // @access    Public
 exports.translation = asyncHandler(async (req, res, next) => {
-
-
-
-
-  const {projectId = 'ringed-metric-278907' ,location = 'global'}= {...process.argv.slice(2)}
-
-
-const {source, target, text } = req.params
-
-
-
-
+  const {projectId = 'ringed-metric-278907', location = 'global'}= {...process.argv.slice(2)};
+  const {source, target, text} = req.params;
 
   // Construct request
   const request = {
@@ -80,21 +69,17 @@ const {source, target, text } = req.params
   } catch (error) {
     console.error(error.details);
   }
-
-
-})
-
+});
 
 
 // @desc      Get single translation
 // @route     GET /api/v1/translation/model/:source/:target/:text
 // @access    Public
 exports.translationWithModel = asyncHandler(async (req, res, next) => {
-
-// const projectId = 'YOUR_PROJECT_ID';
-// const location = 'us-central1';
-// const modelId = 'YOUR_MODEL_ID';
-// const text = 'text to translate';
+  // const projectId = 'YOUR_PROJECT_ID';
+  // const location = 'us-central1';
+  // const modelId = 'YOUR_MODEL_ID';
+  // const text = 'text to translate';
 
 
   // Construct request
@@ -120,6 +105,4 @@ exports.translationWithModel = asyncHandler(async (req, res, next) => {
   } catch (error) {
     console.error(error.details);
   }
-
-
-})
+});
