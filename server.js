@@ -3,12 +3,12 @@ const colors = require('colors');
 const express = require('express');
 // eslint-disable-next-line no-unused-vars
 const path = require('path');
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
 const app = express();
 const cors = require('cors');
 
 // Load env vars
-dotenv.config({path: './config/config.env'});
+// dotenv.config({path: './config/config.env'});
 
 const translation = require('./routes/translation');
 const languages = require('./routes/languages');
@@ -56,13 +56,13 @@ app.use('/api/v1/translation', translation);
 app.use('/api/v1/languages', languages);
 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 // eslint-disable-next-line no-unused-vars
 const server = app.listen(
     PORT,
     console.log(
-        `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold,
+        `Server running on port ${PORT}`.yellow.bold,
     ),
 );
 
