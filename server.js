@@ -13,40 +13,6 @@ const cors = require('cors');
 const translation = require('./routes/translation');
 const languages = require('./routes/languages');
 
-const {Translate} = require('@google-cloud/translate').v2;
-
-function main(
-    projectId = 'YOUR_PROJECT_ID', // Your GCP Project Id
-) {
-  // console.log("projectId", projectId)
-  // [START translate_quickstart]
-
-  // const projectId = 'YOUR_PROJECT_ID';
-
-  // Imports the Google Cloud client library
-
-  // Instantiates a client
-  const translate = new Translate({projectId});
-  // console.log("translate", translate)
-
-  async function quickStart() {
-    // The text to translate
-    const text = 'Hello, world!';
-
-    // The target language
-    const target = 'ru';
-
-    // Translates some text into Russian
-    const [translation] = await translate.translate(text, target);
-    console.log(`Text: ${text}`);
-    console.log(`Translation: ${translation}`);
-  }
-
-  quickStart();
-  // [END translate_quickstart]
-}
-
-main(...process.argv.slice(2));
 
 // Enable CORS
 app.use(cors());
