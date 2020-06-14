@@ -2,5 +2,7 @@
 
 /build
 
+/dist 
+
 # credentials
 config/config.env
