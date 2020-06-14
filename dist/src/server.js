@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // eslint-disable-next-line no-unused-vars
 const colors = require('colors');
 const express = require('express');
@@ -6,39 +8,27 @@ const path = require('path');
 // const dotenv = require('dotenv');
 const app = express();
 const cors = require('cors');
-
 // Load env vars
 // dotenv.config({path: './config/config.env'});
-
+const createMessage_1 = require("./controllers/createMessage");
 const translation = require('./routes/translation');
 const languages = require('./routes/languages');
-
-
+const PORT = process.env.PORT || 8080;
+const messages = new createMessage_1.Messenger(PORT);
 // Enable CORS
 app.use(cors());
-
 // Mount routers
 app.use('/api/v1/translation', translation);
 app.use('/api/v1/languages', languages);
-
-
-const PORT = process.env.PORT || 8080;
-
+app.get('/', (req, res) => res.send(messages.messagePrint()));
 // eslint-disable-next-line no-unused-vars
-const server = app.listen(
-    PORT,
-    console.log(
-        `Server running on port ${PORT}`.yellow.bold,
-    ),
-);
-
+const server = app.listen(PORT, console.log(messages.messagePrint().yellow.bold));
 // Handle unhandled promise rejections
 // eslint-disable-next-line no-unused-vars
 process.on('unhandledRejection', (err, promise) => {
-  console.log(`Error: ${err.message}`.red);
-  // Close server & exit process
-  // server.close(() => process.exit(1));
+    console.log(`Error: ${err.message}`.red);
+    // Close server & exit process
+    // server.close(() => process.exit(1));
 });
-
-
 // https://cloud.google.com/translate/docs/how-to
+//# sourceMappingURL=server.js.map
